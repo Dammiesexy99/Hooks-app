@@ -1,15 +1,23 @@
-import React from 'react'
+import { Link } from "react-router-dom"
+import "./MovieCard.css"
 
-const MovieCard = ({title, url,rating,year,}) => {
+const MovieCard = ({ title, description, rating,trailerURL, id}) => {
   return (
-    <div>
-            <img src={url} alt=""  /> 
-            <h2>{title}</h2>
-            <p>{year}</p>
-            <p>{rating}</p>
-        <h3></h3>
+    
+      <Link to={`/movie/${id}`}>
+      <div className="container">
+      
+      <iframe src={trailerURL} allowFullScreen/>
+      <h2>{title}</h2>
+      <p>{description}</p>
+      <p>Rating:{rating}</p>
+      
     </div>
+    </Link>
+    
   )
+
+  
 }
 
 export default MovieCard
